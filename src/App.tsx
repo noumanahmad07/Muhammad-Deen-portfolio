@@ -48,7 +48,7 @@ const portfolioItems = [
     description: "Modern and impactful logo for brand identity.",
     details:
       "Clean typography and geometric symbols designed for professional recall.",
-    image: "/src/assets/images/logo/42abe175-ca03-48f4-a5cb-abfcb9d1b838.jpg",
+    image: "/images/logo/42abe175-ca03-48f4-a5cb-abfcb9d1b838.jpg",
     tags: ["Branding", "Logo", "Identity"],
   },
 
@@ -58,8 +58,7 @@ const portfolioItems = [
     title: "Digital Art Illustration",
     description: "Creative digital artwork with modern aesthetics.",
     details: "Expressive artwork with attention to detail and emotion.",
-    image:
-      "/src/assets/images/illlustration/a1af8ba0-31fc-427e-bc1c-47235e150d15.jpg",
+    image: "/images/illlustration/a1af8ba0-31fc-427e-bc1c-47235e150d15.jpg",
     tags: ["Digital Art", "Illustration", "Creative"],
   },
   {
@@ -67,8 +66,7 @@ const portfolioItems = [
     title: "Abstract Design",
     description: "Modern abstract illustration with geometric patterns.",
     details: "Vibrant colors and dynamic shapes creating visual interest.",
-    image:
-      "/src/assets/images/illlustration/e3961f7b-d8fa-44a0-889c-8a54a77230c5.jpg",
+    image: "/images/illlustration/e3961f7b-d8fa-44a0-889c-8a54a77230c5.jpg",
     tags: ["Abstract", "Geometric", "Art"],
   },
   {
@@ -76,8 +74,7 @@ const portfolioItems = [
     title: "Character Illustration",
     description: "Detailed character design and illustration.",
     details: "Unique character concept with detailed artwork and personality.",
-    image:
-      "/src/assets/images/illlustration/eb2de6f0-bdc2-4ec1-b31e-7833cef4239c.jpg",
+    image: "/images/illlustration/eb2de6f0-bdc2-4ec1-b31e-7833cef4239c.jpg",
     tags: ["Character", "Illustration", "Design"],
   },
   {
@@ -85,8 +82,7 @@ const portfolioItems = [
     title: "Nature Landscape",
     description: "Beautiful nature-inspired digital illustration.",
     details: "Serene landscape with attention to natural detail and color.",
-    image:
-      "/src/assets/images/illlustration/fb3868cb-1b1d-4086-a07b-a687efc354d3.jpg",
+    image: "/images/illlustration/fb3868cb-1b1d-4086-a07b-a687efc354d3.jpg",
     tags: ["Nature", "Landscape", "Illustration"],
   },
 
@@ -97,8 +93,7 @@ const portfolioItems = [
     description: "Professional social media campaign design.",
     details:
       "High-energy social media post designed to drive engagement and sales.",
-    image:
-      "/src/assets/images/social-media/1c0c56bb-ec0b-4db9-acb8-a3eb35e88c69.jpg",
+    image: "/images/social-media/1c0c56bb-ec0b-4db9-acb8-a3eb35e88c69.jpg",
     tags: ["Social Media", "Campaign", "Marketing"],
   },
   {
@@ -106,8 +101,7 @@ const portfolioItems = [
     title: "Brand Promotion",
     description: "Creative brand promotion for social platforms.",
     details: "Engaging visuals designed to attract and convert audience.",
-    image:
-      "/src/assets/images/social-media/349b4f8a-220e-4e6b-b2ae-81413c6239a0.jpg",
+    image: "/images/social-media/349b4f8a-220e-4e6b-b2ae-81413c6239a0.jpg",
     tags: ["Branding", "Social Media", "Promotion"],
   },
 
@@ -118,8 +112,7 @@ const portfolioItems = [
     description: "Attention-grabbing thumbnail for content creators.",
     details:
       "High-CTR design optimized for YouTube algorithm and viewer engagement.",
-    image:
-      "/src/assets/images/thumnails/0221747f-70a2-47cf-8f87-a28425baa71d.jpg",
+    image: "/images/thumnails/0221747f-70a2-47cf-8f87-a28425baa71d.jpg",
     tags: ["YouTube", "Thumbnail", "CTR"],
   },
   {
@@ -127,8 +120,7 @@ const portfolioItems = [
     title: "Growth Strategy Thumbnail",
     description: "Viral-style thumbnail for growth content.",
     details: "High-impact visuals designed to maximize click-through rates.",
-    image:
-      "/src/assets/images/thumnails/8abd21ec-4af0-4328-bafb-3a14239faa3f.jpg",
+    image: "/images/thumnails/8abd21ec-4af0-4328-bafb-3a14239faa3f.jpg",
     tags: ["Growth", "YouTube", "Viral"],
   },
   {
@@ -136,8 +128,7 @@ const portfolioItems = [
     title: "Educational Content Thumbnail",
     description: "Professional thumbnail for educational content.",
     details: "Clean design with clear messaging for educational audience.",
-    image:
-      "/src/assets/images/thumnails/93955fe9-e196-4119-81a4-47c5feeaa7ac.jpg",
+    image: "/images/thumnails/93955fe9-e196-4119-81a4-47c5feeaa7ac.jpg",
     tags: ["Education", "YouTube", "Tutorial"],
   },
 
@@ -147,8 +138,7 @@ const portfolioItems = [
     title: "Modern Web Design",
     description: "Contemporary website design with focus on UX.",
     details: "Clean layout with modern aesthetics and user-friendly interface.",
-    image:
-      "/src/assets/images/website/c8dfe345-30de-44d8-9e80-2a2794bb1bec.jpg",
+    image: "/images/website/c8dfe345-30de-44d8-9e80-2a2794bb1bec.jpg",
     tags: ["Web Design", "UI/UX", "Modern"],
   },
 
@@ -158,8 +148,7 @@ const portfolioItems = [
     title: "Professional Photo Editing",
     description: "Professional photo enhancement and retouching.",
     details: "Color correction and enhancement for professional photography.",
-    image:
-      "/src/assets/images/lightroom/19f6a3d4-b465-4722-a121-cfed1c4e9f26.jpg",
+    image: "/images/lightroom/19f6a3d4-b465-4722-a121-cfed1c4e9f26.jpg",
     tags: ["Photography", "Editing", "Lightroom"],
   },
   {
@@ -167,8 +156,7 @@ const portfolioItems = [
     title: "Color Grading",
     description: "Advanced color grading and photo enhancement.",
     details: "Professional color correction for visual impact.",
-    image:
-      "/src/assets/images/lightroom/330e3cfd-f8af-4a29-8e37-aa04c7b193b0.jpg",
+    image: "/images/lightroom/330e3cfd-f8af-4a29-8e37-aa04c7b193b0.jpg",
     tags: ["Color", "Grading", "Photography"],
   },
   {
@@ -176,8 +164,7 @@ const portfolioItems = [
     title: "Photo Retouching",
     description: "Professional photo retouching and enhancement.",
     details: "Detailed retouching for flawless professional results.",
-    image:
-      "/src/assets/images/lightroom/57a024ac-e0cb-4814-a3a6-6b003ceb0010.jpg",
+    image: "/images/lightroom/57a024ac-e0cb-4814-a3a6-6b003ceb0010.jpg",
     tags: ["Retouching", "Photography", "Enhancement"],
   },
   {
@@ -185,8 +172,7 @@ const portfolioItems = [
     title: "Landscape Enhancement",
     description: "Professional landscape photo editing.",
     details: "Enhanced colors and details for stunning landscape photography.",
-    image:
-      "/src/assets/images/lightroom/f212ce6b-e0c2-4bab-8cd7-8caa0172d212.jpg",
+    image: "/images/lightroom/f212ce6b-e0c2-4bab-8cd7-8caa0172d212.jpg",
     tags: ["Landscape", "Photography", "Enhancement"],
   },
 
@@ -196,8 +182,7 @@ const portfolioItems = [
     title: "Canva Graphic Design",
     description: "Professional design using Canva platform.",
     details: "Modern graphic design created with Canva tools and templates.",
-    image:
-      "/src/assets/images/canvadesign/78656ffa-c085-4c2d-a6ed-7f43fcc50a0e.jpg",
+    image: "/images/canvadesign/78656ffa-c085-4c2d-a6ed-7f43fcc50a0e.jpg",
     tags: ["Canva", "Graphic Design", "Templates"],
   },
 
@@ -207,8 +192,7 @@ const portfolioItems = [
     title: "Editorial Design",
     description: "Professional editorial layout and design.",
     details: "Structured layouts for modern publications and magazines.",
-    image:
-      "/src/assets/images/editorial/589e4223-6def-49da-a232-7a1dcced8614.jpg",
+    image: "/images/editorial/589e4223-6def-49da-a232-7a1dcced8614.jpg",
     tags: ["Editorial", "Layout", "Publishing"],
   },
 
@@ -218,8 +202,7 @@ const portfolioItems = [
     title: "Photo Manipulation",
     description: "Creative photo manipulation and compositing.",
     details: "Advanced photo manipulation techniques for artistic results.",
-    image:
-      "/src/assets/images/manipulation/5eae2de7-8307-4c42-9187-ec6d8782b2c2.jpg",
+    image: "/images/manipulation/5eae2de7-8307-4c42-9187-ec6d8782b2c2.jpg",
     tags: ["Manipulation", "Compositing", "Art"],
   },
 ];
