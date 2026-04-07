@@ -22,6 +22,11 @@ import {
   Zap,
   Award,
   Users,
+  X,
+  Calendar,
+  Eye,
+  Share2,
+  Download,
 } from "lucide-react";
 import { cn } from "./lib/utils";
 import { useState, useEffect } from "react";
@@ -216,6 +221,9 @@ const stats = [
 export default function App() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [isScrolled, setIsScrolled] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<
+    (typeof portfolioItems)[0] | null
+  >(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -223,10 +231,30 @@ export default function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedProject]);
+
   const filteredItems =
     activeCategory === "all"
       ? portfolioItems
       : portfolioItems.filter((item) => item.category === activeCategory);
+
+  const handleViewProject = (item: (typeof portfolioItems)[0]) => {
+    setSelectedProject(item);
+  };
+
+  const closeModal = () => {
+    setSelectedProject(null);
+  };
 
   return (
     <div className="min-h-screen bg-slate-950 selection:bg-emerald-500/30 selection:text-emerald-400">
@@ -436,7 +464,10 @@ export default function App() {
                     <p className="text-slate-300 text-sm mb-4 line-clamp-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                       {item.details}
                     </p>
-                    <button className="w-fit bg-white text-slate-950 px-6 py-3 rounded-xl font-bold text-xs flex items-center gap-2 hover:bg-emerald-400 transition-colors">
+                    <button
+                      onClick={() => handleViewProject(item)}
+                      className="w-fit bg-white text-slate-950 px-6 py-3 rounded-xl font-bold text-xs flex items-center gap-2 hover:bg-emerald-400 transition-colors"
+                    >
                       View Project <ExternalLink size={14} />
                     </button>
                   </div>
@@ -826,6 +857,152 @@ export default function App() {
           <p>© 2026 Muhammad Deen. All rights reserved.</p>
         </div>
       </footer>
+      {/* Project Modal */}
+      {selectedProject && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
+          onClick={closeModal}
+        >
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-slate-950/90 backdrop-blur-xl" />
+
+          {/* Modal Content */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            transition={{ duration: 0.3 }}
+            className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-slate-900 rounded-[2rem] border border-slate-800 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 z-10 w-12 h-12 bg-slate-800/80 hover:bg-slate-700 rounded-full flex items-center justify-center text-slate-400 hover:text-white transition-all"
+            >
+              <X size={24} />
+            </button>
+
+            <div className="grid md:grid-cols-2">
+              {/* Image Section */}
+              <div className="relative aspect-square md:aspect-auto md:h-full min-h-[300px] bg-slate-950">
+                <img
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+                {/* Image Overlay Info */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-slate-950/90 to-transparent">
+                  <div className="flex items-center gap-4 text-sm text-slate-400">
+                    <span className="flex items-center gap-2">
+                      <Eye size={16} /> 1.2k views
+                    </span>
+                    <span className="flex items-center gap-2">
+                      <Calendar size={16} /> 2024
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Content Section */}
+              <div className="p-8 md:p-10">
+                {/* Category Badge */}
+                <div className="inline-block px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold mb-4 border border-emerald-500/20 uppercase tracking-wider">
+                  {selectedProject.category}
+                </div>
+
+                {/* Title */}
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">
+                  {selectedProject.title}
+                </h2>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {selectedProject.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[11px] uppercase tracking-widest font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1.5 rounded-lg border border-emerald-500/20"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Description */}
+                <p className="text-slate-300 text-lg leading-relaxed mb-6 font-medium">
+                  {selectedProject.description}
+                </p>
+
+                {/* Full Details */}
+                <div className="bg-slate-800/50 rounded-2xl p-6 mb-8">
+                  <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-3">
+                    Project Details
+                  </h3>
+                  <p className="text-slate-300 leading-relaxed">
+                    {selectedProject.details}
+                  </p>
+                </div>
+
+                {/* Additional Info */}
+                <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div className="bg-slate-800/30 rounded-xl p-4">
+                    <span className="text-xs text-slate-500 uppercase tracking-wider">
+                      Category
+                    </span>
+                    <p className="text-white font-bold capitalize">
+                      {selectedProject.category}
+                    </p>
+                  </div>
+                  <div className="bg-slate-800/30 rounded-xl p-4">
+                    <span className="text-xs text-slate-500 uppercase tracking-wider">
+                      Status
+                    </span>
+                    <p className="text-emerald-400 font-bold">Completed</p>
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href={selectedProject.image}
+                    download={`${selectedProject.title.replace(/\s+/g, "_").toLowerCase()}.jpg`}
+                    className="flex-1 bg-emerald-500 text-slate-950 px-6 py-4 rounded-xl font-bold hover:bg-emerald-400 transition-all flex items-center justify-center gap-2"
+                  >
+                    <Download size={18} /> Download
+                  </a>
+                  <button
+                    onClick={async () => {
+                      const shareData = {
+                        title: selectedProject.title,
+                        text: `${selectedProject.title} - ${selectedProject.description}`,
+                        url: window.location.href,
+                      };
+                      if (navigator.share) {
+                        try {
+                          await navigator.share(shareData);
+                        } catch {
+                          navigator.clipboard.writeText(window.location.href);
+                          alert("Link copied to clipboard!");
+                        }
+                      } else {
+                        navigator.clipboard.writeText(window.location.href);
+                        alert("Link copied to clipboard!");
+                      }
+                    }}
+                    className="flex-1 bg-slate-800 text-white px-6 py-4 rounded-xl font-bold hover:bg-slate-700 transition-all flex items-center justify-center gap-2"
+                  >
+                    <Share2 size={18} /> Share
+                  </button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
     </div>
   );
 }
